@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../App.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -35,25 +36,27 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Senha"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Ainda não possui uma conta? <a href="/register">Registre-se</a>
-      </p>
+    <div className="form-container">
+      <div className="form-wrapper">
+        <h2>Login</h2>
+        {error && <p className="error-message">{error}</p>}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+        <p>
+          Ainda não possui uma conta? <a href="/register">Registre-se</a>
+        </p>
+      </div>
     </div>
   );
 }
